@@ -25,7 +25,13 @@ public class JavaApplication {
 
             List<Double> salary = new ArrayList<>();
             salary.add(Double.valueOf(scanner.nextLine()));
-            user.setStartingSalaries(salary);
+            user.setIncrementingSalary(salary);
+//            user.setDecrementingSalary(salary);
+
+
+            List<Double> amt = new ArrayList<>();
+            user.setIncrementAmount(amt);
+//            user.setDecrementAmount(amt);
 
             System.out.println("Enter the percentage of increment");
             double increment = Double.valueOf(scanner.nextLine());
@@ -44,7 +50,7 @@ public class JavaApplication {
 //            double deduction = Double.valueOf(scanner.nextLine());
 //            if (deduction < 0)
 //                throw new Exception();
-//            user.setDeduction(deduction);
+//            user.setDeductionPercent(deduction);
 //
 //            System.out.println("Enter how frequently the deduction is received");
 //            System.out.println("If it is Quarterly, enter 3. Enter 2 for Half-yearly and Enter 1 for Yearly");
@@ -62,15 +68,21 @@ public class JavaApplication {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        IncomePredictor.calculate(user.getStartingSalaries(), user.getIncrementPercent(), user.getIncrementFrequency(),
-                user.getDeduction(), user.getDeductionFrequency(), user.getYearsOfPrediction());
+        IncomePredictor.calculateIncrement(user.getIncrementingSalary(), user.getIncrementPercent(), user.getIncrementFrequency(),
+                user.getYearsOfPrediction(), user.getIncrementAmount());
 
-        System.out.println(user.getStartingSalaries());
+//        IncomePredictor.calculateDecrement(user.getDecrementingSalary(),user.getDeductionPercent(),user.getDeductionFrequency(),
+//                user.getYearsOfPrediction(),user.getDecrementAmount());
+
+        System.out.println(user.getIncrementingSalary());
         System.out.println(user.getIncrementAmount());
         System.out.println(user.getIncrementPercent());
         System.out.println(user.getIncrementFrequency());
-        System.out.println(user.getDeduction());
-        System.out.println(user.getDeductionFrequency());
+//
+//        System.out.println(user.getDecrementingSalary());
+//        System.out.println(user.getDecrementAmount());
+//        System.out.println(user.getDeductionPercent());
+//        System.out.println(user.getDeductionFrequency());
         System.out.println(user.getYearsOfPrediction());
     }
 }
